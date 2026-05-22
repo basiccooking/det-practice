@@ -871,29 +871,43 @@ function renderQuestion() {
     });
 
   } else if (q.type === 'speaking') {
-    html += `<div class="q-hint">🎤 Speak your response aloud. Then self-grade using the checklist below. Time limit: ${q.time} seconds.</div>
+    const hasRecog = ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
+    html += `<div class="q-hint">🎤 Press <strong>Start Recording</strong> and speak your answer. The app will transcribe what you say, then use the rubric to self-grade. Time: ${q.time} sec.</div>
     <div class="q-text" style="white-space: pre-line; background: #f0f4ff; padding:16px; border-radius:8px; margin-bottom:16px;">${q.prompt}</div>
-    <button class="btn btn-secondary" id="speakTimer" onclick="toggleSpeakTimer(${q.time})">▶ Start Timer (${q.time}s)</button>
-    <div id="speakTimerDisplay" class="timer mt-12 text-center" style="display:none;">${q.time}</div>
-    <div style="margin-top:20px;"><strong>Self-Grading Rubric:</strong></div>`;
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
+      <button class="btn btn-secondary" id="recBtn" onclick="toggleRecording()">🎙️ Start Recording</button>
+      <button class="btn btn-outline btn-sm" id="speakTimer" onclick="toggleSpeakTimer(${q.time})">⏱ Timer (${q.time}s)</button>
+      <div id="speakTimerDisplay" class="timer" style="display:none; font-size:1.3rem;">${q.time}</div>
+    </div>
+    <div id="recStatus" style="font-size:0.85rem; color:var(--text-light); margin-bottom:8px;">${hasRecog ? '🟢 Microphone ready' : '⚠️ Speech recognition not supported on this browser — use Chrome or Safari'}</div>
+    <div id="transcript" style="min-height:80px; background:#f9f9f9; border:2px solid var(--border); border-radius:8px; padding:12px; font-size:0.95rem; color:var(--text); margin-bottom:16px; white-space:pre-wrap;"></div>
+    <div style="margin-top:4px;"><strong>Self-Grading Rubric:</strong></div>`;
     q.rubric.forEach((item, i) => {
       html += `<div class="rubric-item"><input type="checkbox" id="rub_${i}"><label for="rub_${i}">${item}</label></div>`;
     });
     html += `<button class="btn btn-primary mt-12" onclick="submitSpeaking()">Submit Self-Grade</button>
     <div id="speakFeedback"></div>`;
     document.getElementById('testArea').innerHTML = html;
+    initSpeechRecognition();
 
   } else if (q.type === 'dictation') {
-    html += `<div class="q-hint">🎧 Imagine you are listening to this sentence. Type exactly what you would hear:</div>
-    <div class="q-text" style="filter: blur(4px); user-select:none; background:#f0f4ff; padding:14px; border-radius:8px; transition: filter 0.3s;" id="dictSentence">${q.sentence}</div>
-    <div style="margin-bottom:16px; color: var(--text-light); font-size:0.85rem;">↑ Sentence is blurred. Type what you hear from memory/practice.</div>
-    <input type="text" id="dictAnswer" placeholder="Type the sentence here..." autofocus>
-    <br><br>
-    <button class="btn btn-secondary btn-sm" onclick="document.getElementById('dictSentence').style.filter='none'">Reveal Sentence First</button>
-    <button class="btn btn-primary" onclick="submitDictation()" style="margin-left:8px;">Submit</button>
+    html += `<div class="q-hint">🎧 Press <strong>Play Audio</strong> to hear the sentence, then type exactly what you heard.</div>
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:16px;">
+      <button class="btn btn-secondary" id="playBtn" onclick="playDictationAudio()">🔊 Play Audio</button>
+      <button class="btn btn-outline btn-sm" id="playSlowBtn" onclick="playDictationAudio(0.7)">🐢 Play Slow</button>
+      <span id="ttsStatus" style="font-size:0.8rem; color:var(--text-light);"></span>
+    </div>
+    <input type="text" id="dictAnswer" placeholder="Type the sentence here..." style="margin-bottom:12px;">
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="submitDictation()">Submit</button>
+      <button class="btn btn-outline btn-sm" onclick="revealDictSentence()">👁 Reveal Text</button>
+    </div>
+    <div id="dictReveal" style="display:none; margin-top:12px; background:#f0f4ff; padding:12px; border-radius:8px; color:#444; font-style:italic;">${q.sentence}</div>
     <div id="dictFeedback"></div>`;
     document.getElementById('testArea').innerHTML = html;
     document.getElementById('dictAnswer')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitDictation(); });
+    // Auto-play on load
+    setTimeout(() => playDictationAudio(), 600);
   }
 }
 
@@ -930,6 +944,120 @@ function startTimer(secs, onExpire) {
 }
 
 function clearTimer() { if (currentTest.timerInterval) { clearInterval(currentTest.timerInterval); currentTest.timerInterval = null; } }
+
+// ============================================================
+// TEXT-TO-SPEECH (Listening / Dictation)
+// ============================================================
+function playDictationAudio(rate = 1.0) {
+  const q = currentTest.questions[currentTest.index];
+  if (!q || !q.sentence) return;
+  if (!('speechSynthesis' in window)) {
+    document.getElementById('ttsStatus').textContent = '⚠️ TTS not supported — use Chrome or Safari';
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(q.sentence);
+  utter.lang = 'en-US';
+  utter.rate = rate;
+  utter.pitch = 1.0;
+  const btn = document.getElementById('playBtn');
+  const status = document.getElementById('ttsStatus');
+  if (btn) btn.textContent = '🔊 Playing...';
+  if (status) status.textContent = '';
+  utter.onend = () => {
+    if (btn) btn.textContent = '🔊 Play Again';
+    if (status) status.textContent = '✅ Done — now type what you heard';
+    document.getElementById('dictAnswer')?.focus();
+  };
+  utter.onerror = (e) => {
+    if (status) status.textContent = '⚠️ Audio error: ' + e.error;
+    if (btn) btn.textContent = '🔊 Play Audio';
+  };
+  window.speechSynthesis.speak(utter);
+}
+
+function revealDictSentence() {
+  const el = document.getElementById('dictReveal');
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+// ============================================================
+// SPEECH RECOGNITION (Speaking)
+// ============================================================
+let recognition = null;
+let isRecording = false;
+let fullTranscript = '';
+
+function initSpeechRecognition() {
+  const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRec) return;
+  recognition = new SpeechRec();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = 'en-US';
+
+  recognition.onresult = (event) => {
+    let interim = '';
+    let final = '';
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+      const t = event.results[i][0].transcript;
+      if (event.results[i].isFinal) final += t + ' ';
+      else interim += t;
+    }
+    fullTranscript += final;
+    const box = document.getElementById('transcript');
+    if (box) box.innerHTML = '<span style="color:#333;">' + fullTranscript + '</span>' +
+      (interim ? '<span style="color:#aaa;">' + interim + '</span>' : '');
+  };
+
+  recognition.onerror = (e) => {
+    const status = document.getElementById('recStatus');
+    if (status) {
+      if (e.error === 'not-allowed') status.textContent = '🔴 Microphone access denied. Please allow microphone in browser settings.';
+      else if (e.error === 'no-speech') status.textContent = '⚠️ No speech detected. Try again.';
+      else status.textContent = '⚠️ Error: ' + e.error;
+    }
+    stopRecording();
+  };
+
+  recognition.onend = () => {
+    if (isRecording) {
+      // Auto-restart for continuous speech on mobile
+      try { recognition.start(); } catch(e) {}
+    }
+  };
+}
+
+function toggleRecording() {
+  if (isRecording) stopRecording();
+  else startRecording();
+}
+
+function startRecording() {
+  if (!recognition) {
+    const status = document.getElementById('recStatus');
+    if (status) status.textContent = '⚠️ Speech recognition not available — use Chrome or Safari';
+    return;
+  }
+  isRecording = true;
+  fullTranscript = '';
+  const btn = document.getElementById('recBtn');
+  const status = document.getElementById('recStatus');
+  const box = document.getElementById('transcript');
+  if (btn) { btn.textContent = '⏹ Stop Recording'; btn.style.background = 'var(--danger)'; }
+  if (status) status.innerHTML = '<span style="color:var(--danger);">🔴 Recording... speak now</span>';
+  if (box) box.textContent = '';
+  try { recognition.start(); } catch(e) {}
+}
+
+function stopRecording() {
+  isRecording = false;
+  if (recognition) { try { recognition.stop(); } catch(e) {} }
+  const btn = document.getElementById('recBtn');
+  const status = document.getElementById('recStatus');
+  if (btn) { btn.textContent = '🎙️ Record Again'; btn.style.background = ''; }
+  if (status) status.innerHTML = '🟢 Recording stopped — review your transcript above, then self-grade below';
+}
 
 let speakTimerInterval = null;
 function toggleSpeakTimer(secs) {
@@ -1098,6 +1226,10 @@ function nextBtnHtml() {
 }
 
 function nextQuestion() {
+  // Clean up mic and TTS if active
+  if (isRecording) stopRecording();
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  if (speakTimerInterval) { clearInterval(speakTimerInterval); speakTimerInterval = null; }
   currentTest.index++;
   if (currentTest.index >= currentTest.questions.length) {
     showResults();
