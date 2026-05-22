@@ -447,119 +447,157 @@ loadStore();
 // ============================================================
 
 const FILL_IN_BLANKS = [
-  { sentence: "She tried to ___ [ad___] to the new work schedule, but it took several weeks.", answer: "adapt", hint: "ad___", clue: "to adjust to new conditions", category: "vocabulary" },
-  { sentence: "The scientist made a remarkable ___ [dis___] that changed our understanding of genetics.", answer: "discovery", hint: "dis___", clue: "finding something new", category: "vocabulary" },
-  { sentence: "His ___ [re___] to follow the rules caused serious problems for the whole team.", answer: "refusal", hint: "re___", clue: "saying no to something", category: "vocabulary" },
-  { sentence: "The new policy will ___ [ben___] thousands of low-income families across the country.", answer: "benefit", hint: "ben___", clue: "to be helpful to someone", category: "vocabulary" },
-  { sentence: "They needed to ___ [col___] on the project to meet the tight deadline.", answer: "collaborate", hint: "col___", clue: "to work together", category: "vocabulary" },
-  { sentence: "The company's ___ [ex___] into Asian markets was very successful last quarter.", answer: "expansion", hint: "ex___", clue: "growing into new areas", category: "vocabulary" },
-  { sentence: "Students must ___ [sub___] their assignments before midnight on Friday.", answer: "submit", hint: "sub___", clue: "to hand in or send in", category: "vocabulary" },
-  { sentence: "Her ___ [per___] attitude helped her succeed despite many obstacles.", answer: "persistent", hint: "per___", clue: "continuing despite difficulty", category: "vocabulary" },
-  { sentence: "The professor asked students to ___ [ana___] the poem carefully before class.", answer: "analyze", hint: "ana___", clue: "to examine in detail", category: "vocabulary" },
-  { sentence: "Local authorities agreed to ___ [inter___] in the ongoing dispute between neighbors.", answer: "intervene", hint: "inter___", clue: "to become involved to stop a problem", category: "vocabulary" },
-  { sentence: "The medicine proved ___ [eff___] in treating the infection within three days.", answer: "effective", hint: "eff___", clue: "producing the intended result", category: "vocabulary" },
-  { sentence: "We must ___ [pre___] our natural resources for future generations.", answer: "preserve", hint: "pre___", clue: "to protect or maintain", category: "vocabulary" },
+  // ── A ──
+  { sentence: "She tried to ___ [ad___] to the new work schedule after the company reorganized.", answer: "adapt", hint: "ad___", clue: "to adjust to new conditions", category: "vocabulary" },
+  { sentence: "The government needs to ___ [addr___] the housing shortage before it worsens.", answer: "address", hint: "addr___", clue: "to deal with a problem", category: "vocabulary" },
+  { sentence: "New regulations will ___ [aff___] small businesses more than large corporations.", answer: "affect", hint: "aff___", clue: "to have an impact on", category: "vocabulary" },
+  { sentence: "The two companies decided to ___ [all___] resources to finish the project faster.", answer: "allocate", hint: "all___", clue: "to distribute for a purpose", category: "vocabulary" },
+  { sentence: "Scientists ___ [ana___] the soil samples to determine the level of contamination.", answer: "analyzed", hint: "ana___", clue: "examined in detail", category: "vocabulary" },
+  { sentence: "She was ___ [app___] for the research position based on her strong academic record.", answer: "appointed", hint: "app___", clue: "selected for a role", category: "vocabulary" },
+  { sentence: "The team ___ [ach___] their sales target three months ahead of schedule.", answer: "achieved", hint: "ach___", clue: "successfully reached a goal", category: "vocabulary" },
+  // ── B-C ──
+  { sentence: "The new policy will ___ [ben___] thousands of low-income families across the country.", answer: "benefit", hint: "ben___", clue: "to help or improve", category: "vocabulary" },
+  { sentence: "They decided to ___ [col___] on the project to meet the tight deadline.", answer: "collaborate", hint: "col___", clue: "to work together", category: "vocabulary" },
   { sentence: "The report ___ [con___] that more funding was needed for medical research.", answer: "concluded", hint: "con___", clue: "reached a decision after study", category: "vocabulary" },
+  { sentence: "The construction company must ___ [com___] with all local safety regulations.", answer: "comply", hint: "com___", clue: "to follow rules or standards", category: "vocabulary" },
+  { sentence: "Researchers are trying to ___ [com___] a detailed map of the ocean floor.", answer: "compile", hint: "com___", clue: "to gather and put together", category: "vocabulary" },
+  { sentence: "The president refused to ___ [com___] on the ongoing investigation.", answer: "comment", hint: "com___", clue: "to make a statement about", category: "vocabulary" },
+  { sentence: "New laws were introduced to ___ [con___] the spread of misinformation online.", answer: "control", hint: "con___", clue: "to manage or limit something", category: "vocabulary" },
+  { sentence: "The charity relies on ___ [con___] from the public to fund its programs.", answer: "contributions", hint: "con___", clue: "donations or gifts", category: "vocabulary" },
   { sentence: "She showed great ___ [cour___] when she spoke publicly about her experience.", answer: "courage", hint: "cour___", clue: "bravery in difficult situations", category: "vocabulary" },
-  { sentence: "The new technology will ___ [trans___] the way we communicate in the future.", answer: "transform", hint: "trans___", clue: "to change completely", category: "vocabulary" },
-  { sentence: "Many experts ___ [spec___] that house prices will rise next year.", answer: "speculate", hint: "spec___", clue: "to form theories without firm evidence", category: "vocabulary" },
-  { sentence: "The artist's ___ [uni___] style made her work instantly recognizable worldwide.", answer: "unique", hint: "uni___", clue: "unlike anything else", category: "vocabulary" },
+  // ── D-E ──
+  { sentence: "The scientist made a remarkable ___ [dis___] that changed our understanding of genetics.", answer: "discovery", hint: "dis___", clue: "finding something new", category: "vocabulary" },
+  { sentence: "Volunteers ___ [dis___] food and water to the flood victims in remote areas.", answer: "distributed", hint: "dis___", clue: "handed out to many people", category: "vocabulary" },
+  { sentence: "The medicine proved ___ [eff___] in treating the infection within three days.", answer: "effective", hint: "eff___", clue: "producing the intended result", category: "vocabulary" },
+  { sentence: "The professor ___ [enc___] students to ask questions during the lecture.", answer: "encouraged", hint: "enc___", clue: "motivated or supported", category: "vocabulary" },
+  { sentence: "The university will ___ [est___] a new research center for artificial intelligence.", answer: "establish", hint: "est___", clue: "to set up or create formally", category: "vocabulary" },
+  { sentence: "The board met to ___ [eva___] the performance of senior managers.", answer: "evaluate", hint: "eva___", clue: "to judge the quality or value of", category: "vocabulary" },
+  { sentence: "The company's ___ [ex___] into Asian markets was very successful last quarter.", answer: "expansion", hint: "ex___", clue: "growing into new areas", category: "vocabulary" },
+  { sentence: "The new bridge will ___ [eli___] traffic jams on the main highway.", answer: "eliminate", hint: "eli___", clue: "to completely remove", category: "vocabulary" },
+  // ── F-I ──
+  { sentence: "The two countries agreed to ___ [for___] a joint committee to handle trade issues.", answer: "form", hint: "for___", clue: "to create or establish", category: "vocabulary" },
+  { sentence: "Local authorities ___ [fund___] the new library through a community grant.", answer: "funded", hint: "fund___", clue: "provided money for", category: "vocabulary" },
   { sentence: "He was ___ [inc___] of understanding the complex mathematical proof.", answer: "incapable", hint: "inc___", clue: "not able to do something", category: "vocabulary" },
+  { sentence: "The new manager quickly ___ [imp___] several changes to the daily routine.", answer: "implemented", hint: "imp___", clue: "put a plan into action", category: "vocabulary" },
+  { sentence: "Local authorities agreed to ___ [inter___] in the ongoing dispute between neighbors.", answer: "intervene", hint: "inter___", clue: "to step in to stop a problem", category: "vocabulary" },
+  { sentence: "Research ___ [ind___] that exercise can reduce the risk of heart disease.", answer: "indicates", hint: "ind___", clue: "shows or suggests", category: "vocabulary" },
+  // ── M-P ──
+  { sentence: "The hospital decided to ___ [mod___] its appointment system to reduce waiting times.", answer: "modernize", hint: "mod___", clue: "to update to current standards", category: "vocabulary" },
+  { sentence: "Her ___ [per___] attitude helped her succeed despite many obstacles.", answer: "persistent", hint: "per___", clue: "continuing despite difficulty", category: "vocabulary" },
+  { sentence: "We must ___ [pre___] our natural resources for future generations.", answer: "preserve", hint: "pre___", clue: "to protect or maintain", category: "vocabulary" },
+  { sentence: "The professor asked students to ___ [pro___] a written summary of each chapter.", answer: "produce", hint: "pro___", clue: "to create or make", category: "vocabulary" },
+  { sentence: "The organization aims to ___ [pro___] gender equality in the workplace.", answer: "promote", hint: "pro___", clue: "to support or encourage something", category: "vocabulary" },
+  { sentence: "They agreed to ___ [pur___] a more sustainable approach to manufacturing.", answer: "pursue", hint: "pur___", clue: "to follow or try to achieve", category: "vocabulary" },
+  // ── R-S ──
+  { sentence: "His ___ [re___] to follow the rules caused serious problems for the whole team.", answer: "refusal", hint: "re___", clue: "saying no to something", category: "vocabulary" },
   { sentence: "The committee will ___ [rev___] the proposal at next month's meeting.", answer: "review", hint: "rev___", clue: "to look at again carefully", category: "vocabulary" },
-  { sentence: "Volunteers ___ [dis___] food and water to the flood victims.", answer: "distributed", hint: "dis___", clue: "handed out to many people", category: "vocabulary" },
+  { sentence: "The town council voted to ___ [res___] the historic building rather than demolish it.", answer: "restore", hint: "res___", clue: "to return to original condition", category: "vocabulary" },
+  { sentence: "The government ___ [rel___] new data on unemployment rates every quarter.", answer: "releases", hint: "rel___", clue: "makes information available", category: "vocabulary" },
+  { sentence: "Many experts ___ [spec___] that house prices will rise significantly next year.", answer: "speculate", hint: "spec___", clue: "to theorize without firm evidence", category: "vocabulary" },
+  { sentence: "Students must ___ [sub___] their assignments before midnight on Friday.", answer: "submit", hint: "sub___", clue: "to hand in or send in", category: "vocabulary" },
+  { sentence: "The scientist used a new method to ___ [syn___] the two compounds in the lab.", answer: "synthesize", hint: "syn___", clue: "to combine elements into a whole", category: "vocabulary" },
+  { sentence: "She ___ [sug___] that the team take a break before the final presentation.", answer: "suggested", hint: "sug___", clue: "recommended an idea", category: "vocabulary" },
+  // ── T-U ──
+  { sentence: "The new technology will ___ [trans___] the way we communicate in the future.", answer: "transform", hint: "trans___", clue: "to change completely", category: "vocabulary" },
+  { sentence: "The artist's ___ [uni___] style made her work instantly recognizable worldwide.", answer: "unique", hint: "uni___", clue: "unlike anything else", category: "vocabulary" },
+  { sentence: "The council voted to ___ [upd___] the city's zoning laws to allow taller buildings.", answer: "update", hint: "upd___", clue: "to make something more current", category: "vocabulary" },
+  { sentence: "The engineer was asked to ___ [util___] solar panels to power the new facility.", answer: "utilize", hint: "util___", clue: "to make use of something", category: "vocabulary" },
+  // ── V-W ──
+  { sentence: "The researcher ___ [ver___] the accuracy of the data before publishing the results.", answer: "verified", hint: "ver___", clue: "confirmed something is true", category: "vocabulary" },
+  { sentence: "The professor asked the class to ___ [sum___] the main arguments of the article.", answer: "summarize", hint: "sum___", clue: "to give a brief account of", category: "vocabulary" },
+  { sentence: "The new airport terminal will ___ [sig___] reduce travel times across the region.", answer: "significantly", hint: "sig___", clue: "by a large or important amount", category: "vocabulary" },
+  { sentence: "The dean ___ [app___] the student's request for an extension on the final essay.", answer: "approved", hint: "app___", clue: "officially agreed to", category: "vocabulary" },
+  { sentence: "The scientist tried to ___ [rep___] the experiment to confirm the original findings.", answer: "replicate", hint: "rep___", clue: "to copy or repeat exactly", category: "vocabulary" },
+  { sentence: "Many cities are trying to ___ [red___] carbon emissions to meet climate targets.", answer: "reduce", hint: "red___", clue: "to make smaller or less", category: "vocabulary" },
+  { sentence: "The study ___ [rev___] a strong link between sleep deprivation and poor performance.", answer: "revealed", hint: "rev___", clue: "made something known", category: "vocabulary" },
+  { sentence: "The training program helped employees ___ [dev___] critical thinking and problem-solving skills.", answer: "develop", hint: "dev___", clue: "to grow or build a skill", category: "vocabulary" },
+  { sentence: "The committee ___ [rec___] that schools adopt a four-day week on a trial basis.", answer: "recommended", hint: "rec___", clue: "suggested as the best option", category: "vocabulary" },
+  { sentence: "The new law will ___ [req___] companies to report their carbon emissions annually.", answer: "require", hint: "req___", clue: "to make something obligatory", category: "vocabulary" },
 ];
 
 const READ_COMPLETE_PASSAGES = [
   {
     title: "Climate and Agriculture",
-    passage: `Modern farming faces enormous [ch___]. As temperatures rise, farmers must [ad___] their methods to ensure crop survival. Water [sc___] has become a major concern in many regions, forcing agricultural communities to [im___] more efficient irrigation systems. Scientists are working to [de___] new crop varieties that can [wi___] extreme weather conditions.`,
-    blanks: [
-      { hint: "ch___", answer: "challenges", clue: "difficulties" },
-      { hint: "ad___", answer: "adapt", clue: "adjust" },
-      { hint: "sc___", answer: "scarcity", clue: "shortage" },
-      { hint: "im___", answer: "implement", clue: "put into practice" },
-      { hint: "de___", answer: "develop", clue: "create" },
-      { hint: "wi___", answer: "withstand", clue: "survive" },
-    ],
-    category: "reading"
+    passage: `Modern farming faces enormous [ch___ges]. As temperatures rise, farmers must [ad_pt] their methods to ensure crop survival. Water [sc_rcity] has become a major concern in many regions, forcing agricultural communities to [im_lement] more efficient irrigation systems. Scientists are working to [dev_lop] new crop varieties that can [wi_hstand] extreme weather conditions while maintaining high yields.`,
+    blanks: [ { hint: "ch___ges", answer: "challenges", clue: "difficulties" }, { hint: "ad_pt", answer: "adapt", clue: "adjust" }, { hint: "sc_rcity", answer: "scarcity", clue: "shortage" }, { hint: "im_lement", answer: "implement", clue: "put into practice" }, { hint: "dev_lop", answer: "develop", clue: "create" }, { hint: "wi_hstand", answer: "withstand", clue: "survive" } ], category: "reading"
   },
   {
     title: "The Rise of Remote Work",
-    passage: `The global shift to remote work has [tr___] workplace culture. Companies have had to [re___] their management [str___] to keep employees [pro___] and connected. While many workers [ap___] the flexibility, others struggle with [is___] and the blurring of work-life boundaries. Organizations must [ba___] efficiency with employee wellbeing.`,
-    blanks: [
-      { hint: "tr___", answer: "transformed", clue: "changed completely" },
-      { hint: "re___", answer: "rethink", clue: "reconsider" },
-      { hint: "str___", answer: "strategies", clue: "plans" },
-      { hint: "pro___", answer: "productive", clue: "efficient" },
-      { hint: "ap___", answer: "appreciate", clue: "value" },
-      { hint: "is___", answer: "isolation", clue: "feeling alone" },
-      { hint: "ba___", answer: "balance", clue: "find equilibrium" },
-    ],
-    category: "reading"
+    passage: `The global shift to remote work has [tr_nsformed] workplace culture forever. Companies have had to [re_hink] their management [str_tegies] to keep employees [pro_uctive] and connected. While many workers [ap_reciate] the flexibility this offers, others struggle with [is_lation] and the blurring of work-life boundaries. Organizations must [bal_nce] efficiency goals with genuine employee wellbeing.`,
+    blanks: [ { hint: "tr_nsformed", answer: "transformed", clue: "changed completely" }, { hint: "re_hink", answer: "rethink", clue: "reconsider" }, { hint: "str_tegies", answer: "strategies", clue: "plans" }, { hint: "pro_uctive", answer: "productive", clue: "efficient" }, { hint: "ap_reciate", answer: "appreciate", clue: "value" }, { hint: "is_lation", answer: "isolation", clue: "feeling alone" }, { hint: "bal_nce", answer: "balance", clue: "find equilibrium" } ], category: "reading"
   },
   {
     title: "Digital Learning",
-    passage: `Technology has [rev___] education by making learning more [ac___] to students worldwide. Online platforms [pro___] a wide range of courses that students can [com___] at their own pace. However, the [di___] divide remains a significant [bar___], as not all students have [eq___] access to devices and internet.`,
-    blanks: [
-      { hint: "rev___", answer: "revolutionized", clue: "completely changed" },
-      { hint: "ac___", answer: "accessible", clue: "available to all" },
-      { hint: "pro___", answer: "provide", clue: "offer" },
-      { hint: "com___", answer: "complete", clue: "finish" },
-      { hint: "di___", answer: "digital", clue: "relating to computers" },
-      { hint: "bar___", answer: "barrier", clue: "obstacle" },
-      { hint: "eq___", answer: "equal", clue: "the same for everyone" },
-    ],
-    category: "reading"
+    passage: `Technology has [rev_lutionized] education by making learning more [ac_essible] to students worldwide. Online platforms [pro_ide] a wide range of courses that students can [com_lete] at their own pace. However, the [di_ital] divide remains a significant [bar_ier], as not all students have [eq_al] access to devices and high-speed internet.`,
+    blanks: [ { hint: "rev_lutionized", answer: "revolutionized", clue: "completely changed" }, { hint: "ac_essible", answer: "accessible", clue: "available to all" }, { hint: "pro_ide", answer: "provide", clue: "offer" }, { hint: "com_lete", answer: "complete", clue: "finish" }, { hint: "di_ital", answer: "digital", clue: "relating to computers" }, { hint: "bar_ier", answer: "barrier", clue: "obstacle" }, { hint: "eq_al", answer: "equal", clue: "the same for everyone" } ], category: "reading"
   },
   {
     title: "Urban Planning",
-    passage: `City planners face the [ch___] of creating [sus___] urban environments. As populations grow, cities must [ex___] their [inf___] while reducing environmental impact. [Inn___] solutions like green buildings and [eff___] public transport help cities become more [liv___] for all residents.`,
-    blanks: [
-      { hint: "ch___", answer: "challenge", clue: "difficulty" },
-      { hint: "sus___", answer: "sustainable", clue: "eco-friendly" },
-      { hint: "ex___", answer: "expand", clue: "grow bigger" },
-      { hint: "inf___", answer: "infrastructure", clue: "roads, buildings, etc." },
-      { hint: "Inn___", answer: "Innovative", clue: "new and creative" },
-      { hint: "eff___", answer: "efficient", clue: "works without waste" },
-      { hint: "liv___", answer: "livable", clue: "pleasant to live in" },
-    ],
-    category: "reading"
-  }
+    passage: `City planners face the [ch_llenge] of creating [sus_ainable] urban environments for growing populations. As cities expand, they must [im_rove] their [inf_astructure] while reducing environmental impact. [Inn_vative] solutions such as green buildings and [eff_cient] public transport systems help cities become more [liv_able] for all residents.`,
+    blanks: [ { hint: "ch_llenge", answer: "challenge", clue: "difficulty" }, { hint: "sus_ainable", answer: "sustainable", clue: "eco-friendly" }, { hint: "im_rove", answer: "improve", clue: "make better" }, { hint: "inf_astructure", answer: "infrastructure", clue: "roads, buildings, etc." }, { hint: "Inn_vative", answer: "Innovative", clue: "new and creative" }, { hint: "eff_cient", answer: "efficient", clue: "works without waste" }, { hint: "liv_able", answer: "livable", clue: "pleasant to live in" } ], category: "reading"
+  },
+  {
+    title: "The Science of Sleep",
+    passage: `Sleep is [es_ential] for good physical and mental health. During sleep, the brain [pro_esses] memories and [rem_ves] harmful toxins. People who [suf_er] from sleep deprivation often [exp_rience] reduced concentration and weakened [im_unity]. Doctors [rec_mmend] that adults get between seven and nine hours of quality sleep each night.`,
+    blanks: [ { hint: "es_ential", answer: "essential", clue: "absolutely necessary" }, { hint: "pro_esses", answer: "processes", clue: "handles or deals with" }, { hint: "rem_ves", answer: "removes", clue: "takes away" }, { hint: "suf_er", answer: "suffer", clue: "experience something bad" }, { hint: "exp_rience", answer: "experience", clue: "go through or feel" }, { hint: "im_unity", answer: "immunity", clue: "body's defense system" }, { hint: "rec_mmend", answer: "recommend", clue: "suggest as the best option" } ], category: "reading"
+  },
+  {
+    title: "Global Trade and Economics",
+    passage: `International trade plays a [vi_al] role in the global [ec_nomy]. Countries [ex_ort] goods in which they have a [com_arative] advantage and [im_ort] what they cannot [pro_uce] efficiently. Trade [agr_ements] between nations help reduce [tar_ffs] and [enc_urage] economic growth and cooperation.`,
+    blanks: [ { hint: "vi_al", answer: "vital", clue: "extremely important" }, { hint: "ec_nomy", answer: "economy", clue: "system of money and trade" }, { hint: "ex_ort", answer: "export", clue: "send goods abroad" }, { hint: "com_arative", answer: "comparative", clue: "relating to comparison" }, { hint: "im_ort", answer: "import", clue: "bring goods in" }, { hint: "pro_uce", answer: "produce", clue: "make or create" }, { hint: "agr_ements", answer: "agreements", clue: "formal arrangements" }, { hint: "tar_ffs", answer: "tariffs", clue: "taxes on imports" }, { hint: "enc_urage", answer: "encourage", clue: "support or promote" } ], category: "reading"
+  },
+  {
+    title: "Mental Health Awareness",
+    passage: `Mental health is just as [imp_rtant] as physical health, yet it is often [neg_ected] in many societies. Stress, anxiety, and depression are among the most [com_on] mental health [con_itions] worldwide. Early [int_rvention] and access to [pro_essional] support can [sig_ificantly] improve [out_omes] for people who are struggling.`,
+    blanks: [ { hint: "imp_rtant", answer: "important", clue: "significant" }, { hint: "neg_ected", answer: "neglected", clue: "ignored or not cared for" }, { hint: "com_on", answer: "common", clue: "frequent or widespread" }, { hint: "con_itions", answer: "conditions", clue: "medical disorders" }, { hint: "int_rvention", answer: "intervention", clue: "action to improve a situation" }, { hint: "pro_essional", answer: "professional", clue: "trained expert" }, { hint: "sig_ificantly", answer: "significantly", clue: "by a large amount" }, { hint: "out_omes", answer: "outcomes", clue: "results" } ], category: "reading"
+  },
+  {
+    title: "Space Exploration",
+    passage: `Humanity's [exp_oration] of space has [rev_aled] countless [mys_eries] about the universe. Space missions have led to [sig_ificant] [tec_nological] advances that we use in everyday life. Scientists hope to [est_blish] a [per_anent] human [pre_ence] on Mars within the next few decades, though the [ch_llenges] are enormous.`,
+    blanks: [ { hint: "exp_oration", answer: "exploration", clue: "the act of exploring" }, { hint: "rev_aled", answer: "revealed", clue: "made known" }, { hint: "mys_eries", answer: "mysteries", clue: "unexplained things" }, { hint: "sig_ificant", answer: "significant", clue: "important" }, { hint: "tec_nological", answer: "technological", clue: "relating to technology" }, { hint: "est_blish", answer: "establish", clue: "set up" }, { hint: "per_anent", answer: "permanent", clue: "lasting forever" }, { hint: "pre_ence", answer: "presence", clue: "being in a place" }, { hint: "ch_llenges", answer: "challenges", clue: "difficult problems" } ], category: "reading"
+  },
+  {
+    title: "The Importance of Biodiversity",
+    passage: `Biodiversity refers to the [var_ety] of life on Earth, from [mic_oscopic] bacteria to large [mam_als]. Every [spe_ies] plays a role in [mai_taining] the balance of its [eco_ystem]. When species become [ext_nct], it can [dis_upt] food chains and [und_rmine] the stability of entire environments.`,
+    blanks: [ { hint: "var_ety", answer: "variety", clue: "range of different things" }, { hint: "mic_oscopic", answer: "microscopic", clue: "too small to see" }, { hint: "mam_als", answer: "mammals", clue: "warm-blooded animals" }, { hint: "spe_ies", answer: "species", clue: "type of living organism" }, { hint: "mai_taining", answer: "maintaining", clue: "keeping up" }, { hint: "eco_ystem", answer: "ecosystem", clue: "community of living things" }, { hint: "ext_nct", answer: "extinct", clue: "no longer existing" }, { hint: "dis_upt", answer: "disrupt", clue: "interrupt or disturb" }, { hint: "und_rmine", answer: "undermine", clue: "weaken gradually" } ], category: "reading"
+  },
+  {
+    title: "Artificial Intelligence in Healthcare",
+    passage: `Artificial intelligence is [tra_sforming] the healthcare [ind_stry] in [rem_rkable] ways. AI [alg_rithms] can now [dia_nose] certain diseases more [acc_rately] than human doctors. However, [eth_cal] questions remain about patient [pri_acy] and the role of machines in making [cri_ical] medical [dec_sions].`,
+    blanks: [ { hint: "tra_sforming", answer: "transforming", clue: "changing completely" }, { hint: "ind_stry", answer: "industry", clue: "sector of the economy" }, { hint: "rem_rkable", answer: "remarkable", clue: "impressive and notable" }, { hint: "alg_rithms", answer: "algorithms", clue: "sets of rules for computers" }, { hint: "dia_nose", answer: "diagnose", clue: "identify a disease" }, { hint: "acc_rately", answer: "accurately", clue: "correctly and precisely" }, { hint: "eth_cal", answer: "ethical", clue: "relating to right and wrong" }, { hint: "pri_acy", answer: "privacy", clue: "personal information rights" }, { hint: "dec_sions", answer: "decisions", clue: "choices made" } ], category: "reading"
+  },
 ];
 
 const INTERACTIVE_WRITING_PROMPTS = [
-  {
-    prompt: "Some people believe that technology is making us less social. Do you agree or disagree? Use specific reasons and examples to support your answer.",
-    followUp: "What do you think are the biggest advantages of face-to-face communication compared to digital communication?",
-    minWords: 160,
-    rubric: ["Clear thesis/position stated in intro", "At least 2-3 supporting reasons", "Specific examples used", "Counter-argument acknowledged", "Strong conclusion", "Varied vocabulary (no word repeated excessively)", "Correct grammar and punctuation", "Appropriate transition words (however, furthermore, etc.)", "Minimum 160 words"],
-    category: "reading"
-  },
-  {
-    prompt: "Many universities now require students to take online courses in addition to traditional classes. What are the advantages and disadvantages of this approach?",
-    followUp: "How do you think online learning will change education in the next 10 years?",
-    minWords: 160,
-    rubric: ["Introduction with clear topic", "Advantages clearly explained (2+)", "Disadvantages clearly explained (2+)", "Balanced perspective shown", "Personal opinion included", "Conclusion summarizes main points", "Academic vocabulary used appropriately", "Complex sentence structures", "Minimum 160 words"],
-    category: "reading"
-  },
-  {
-    prompt: "Should governments make it mandatory for citizens to participate in community service? Discuss both sides and give your opinion.",
-    followUp: "What types of community service do you think would be most beneficial for society?",
-    minWords: 160,
-    rubric: ["Clear introduction with the issue stated", "Arguments FOR mandatory service", "Arguments AGAINST mandatory service", "Clear personal opinion", "Examples to support your view", "Smooth transitions between ideas", "Formal academic tone", "Accurate use of conditionals/modals", "Minimum 160 words"],
-    category: "reading"
-  },
+  { prompt: "Some people believe that technology is making us less social. Do you agree or disagree? Use specific reasons and examples to support your answer.", followUp: "What do you think are the biggest advantages of face-to-face communication compared to digital communication?", minWords: 160, rubric: ["Clear thesis/position stated in intro", "At least 2-3 supporting reasons", "Specific examples used", "Counter-argument acknowledged", "Strong conclusion", "Varied vocabulary", "Correct grammar and punctuation", "Appropriate transition words (however, furthermore, etc.)", "Minimum 160 words"], category: "reading" },
+  { prompt: "Many universities now require students to take online courses in addition to traditional classes. What are the advantages and disadvantages of this approach?", followUp: "How do you think online learning will change education in the next 10 years?", minWords: 160, rubric: ["Introduction with clear topic", "Advantages clearly explained (2+)", "Disadvantages clearly explained (2+)", "Balanced perspective shown", "Personal opinion included", "Conclusion summarizes main points", "Academic vocabulary used", "Complex sentence structures", "Minimum 160 words"], category: "reading" },
+  { prompt: "Should governments make it mandatory for citizens to participate in community service? Discuss both sides and give your opinion.", followUp: "What types of community service do you think would be most beneficial for society?", minWords: 160, rubric: ["Clear introduction with the issue stated", "Arguments FOR mandatory service", "Arguments AGAINST mandatory service", "Clear personal opinion", "Examples to support your view", "Smooth transitions between ideas", "Formal academic tone", "Accurate use of conditionals/modals", "Minimum 160 words"], category: "reading" },
+  { prompt: "Some experts argue that children should not be allowed to use smartphones before the age of 14. To what extent do you agree or disagree with this view?", followUp: "What guidelines would you suggest for healthy smartphone use among teenagers?", minWords: 160, rubric: ["Position clearly stated", "Arguments for the age restriction", "Arguments against the restriction", "Reference to child development or education", "Personal stance with reasoning", "Counter-argument acknowledged", "Varied sentence structures", "Formal vocabulary used", "Minimum 160 words"], category: "reading" },
+  { prompt: "In many countries, the gap between rich and poor is growing. What are the main causes of this inequality, and what can be done to reduce it?", followUp: "Do you think it is the government's responsibility to close the wealth gap? Why or why not?", minWords: 160, rubric: ["Identified at least two causes of inequality", "Proposed at least two solutions", "Used evidence or examples", "Showed understanding of the issue's complexity", "Clear structure throughout", "Academic language used", "No excessive repetition", "Convincing conclusion", "Minimum 160 words"], category: "reading" },
+  { prompt: "Do you think it is better for young people to gain work experience before going to university, or should they continue their education first? Discuss and give your opinion.", followUp: "What skills do you think cannot be learned in a university classroom?", minWords: 160, rubric: ["Both options discussed", "Advantages of working first given", "Advantages of studying first given", "Clear personal recommendation", "Logical flow between paragraphs", "Hedging language used appropriately", "Vocabulary is varied and relevant", "Conclusion restates position", "Minimum 160 words"], category: "reading" },
+  { prompt: "Many scientists believe that individuals can do more to help the environment than governments can. Do you agree or disagree?", followUp: "What is one specific action you personally take or plan to take to reduce your environmental impact?", minWords: 160, rubric: ["Position stated clearly in introduction", "Role of individuals discussed", "Role of governments discussed", "Comparison between both made", "Concrete examples used", "Transition words connect ideas smoothly", "Sophisticated vocabulary", "Compelling conclusion", "Minimum 160 words"], category: "reading" },
+  { prompt: "Is it more important for schools to teach students how to think critically than to teach them specific knowledge? Discuss both views and give your opinion.", followUp: "Can you give an example of a situation where critical thinking was more important than factual knowledge?", minWords: 160, rubric: ["Both sides of the debate presented", "Critical thinking skills defined or described", "Value of subject knowledge acknowledged", "Personal opinion is clearly argued", "Examples from real life or education", "Logical paragraph structure", "Rich academic vocabulary", "Strong concluding paragraph", "Minimum 160 words"], category: "reading" },
 ];
 
 const SPEAKING_PROMPTS = [
   { type: "Read Then Speak", prompt: "Read this text and then speak about the main idea and your opinion:\n\n\"Environmental pollution is one of the greatest threats facing humanity today. Industrial waste, vehicle emissions, and plastic pollution are poisoning our air, water, and soil. Without immediate and coordinated global action, experts warn we may reach irreversible tipping points within decades.\"", time: 90, rubric: ["Mentioned the main topic (pollution)", "Explained at least one specific type of pollution", "Gave your personal reaction or opinion", "Used connecting words (because, therefore, however)", "Clear pronunciation throughout", "Spoke for at least 45 seconds", "Used vocabulary from the passage", "Maintained appropriate pace", "Concluded with a clear statement"] },
-  { type: "Interactive Speaking", prompt: "Tell me about a time when you faced a significant challenge and how you overcame it. What did you learn from that experience?", time: 60, rubric: ["Clearly described the challenge", "Explained the steps taken to overcome it", "Mentioned what was learned", "Used past tense correctly", "Specific details included", "Spoke fluently without long pauses", "Used transition phrases (first, then, finally)", "Appropriate vocabulary level", "Spoke for at least 25 seconds"] },
-  { type: "Speaking Sample", prompt: "Some people prefer living in a big city, while others prefer the countryside. Discuss the advantages of each and explain where you would prefer to live and why.", time: 90, rubric: ["Mentioned advantages of city life", "Mentioned advantages of countryside life", "Clearly stated personal preference", "Gave reasons for preference", "Used comparative language (more, less, better)", "Organized response clearly", "Varied vocabulary used", "Strong conclusion", "Spoke for at least 60 seconds"] },
   { type: "Read Then Speak", prompt: "Read this text and then speak about it:\n\n\"The rise of artificial intelligence has sparked debate about the future of employment. While AI creates new job categories, it also automates many routine tasks previously done by humans. Economists are divided on whether the net effect will be positive or negative for workers.\"", time: 90, rubric: ["Introduced the topic of AI and employment", "Explained both sides of the debate", "Gave own opinion", "Used specific vocabulary (automate, economy, employment)", "Clear structure (intro, body, conclusion)", "Good pronunciation of technical terms", "Fluent delivery", "Used hedging language (might, could)", "Spoke for at least 45 seconds"] },
-  { type: "Speak About the Photo", prompt: "Imagine you are looking at a photo of a busy city market where vendors are selling fresh fruits and vegetables. People of various ages are shopping, and children are helping their parents carry bags. Describe what you see and what you think is happening.", time: 60, rubric: ["Described the main scene (market)", "Mentioned specific details (fruits, vegetables)", "Described the people present", "Used present continuous tense (are selling, are shopping)", "Made an inference about what is happening", "Used spatial language (in the foreground, nearby)", "Natural and fluent delivery", "Varied sentence structure", "Spoke for at least 45 seconds"] },
+  { type: "Read Then Speak", prompt: "Read this text and then speak about it:\n\n\"Access to clean water is considered a basic human right, yet nearly two billion people worldwide lack safe drinking water at home. Climate change, population growth, and industrial pollution are worsening this crisis. International cooperation and investment in water infrastructure are urgently needed.\"", time: 90, rubric: ["Stated the main problem clearly", "Mentioned at least two causes", "Discussed the scale of the problem", "Gave your view on the solution", "Used numbers or statistics from the text", "Spoke with appropriate pace", "Connected ideas with linking words", "Spoke for at least 45 seconds", "Clear and audible pronunciation"] },
+  { type: "Read Then Speak", prompt: "Read this text and then speak about it:\n\n\"Social media platforms have fundamentally changed how people consume news. While these platforms allow rapid information sharing, they also contribute to the spread of misinformation and echo chambers, where people only encounter views they already agree with.\"", time: 90, rubric: ["Mentioned both benefits and risks of social media news", "Defined or explained 'echo chambers'", "Gave personal opinion on the issue", "Used vocabulary from the passage", "Spoke fluently without long pauses", "Response was well-structured", "Used hedging language appropriately", "Spoke for at least 45 seconds", "Ended with a concluding opinion"] },
+  { type: "Interactive Speaking", prompt: "Tell me about a time when you faced a significant challenge and how you overcame it. What did you learn from that experience?", time: 60, rubric: ["Clearly described the challenge", "Explained the steps taken to overcome it", "Mentioned what was learned", "Used past tense correctly", "Specific details included", "Spoke fluently without long pauses", "Used transition phrases (first, then, finally)", "Appropriate vocabulary level", "Spoke for at least 25 seconds"] },
+  { type: "Interactive Speaking", prompt: "Describe a person who has had a significant influence on your life. Who are they, and how have they influenced you?", time: 60, rubric: ["Named or described the person clearly", "Explained the specific influence", "Used descriptive language", "Gave at least one concrete example", "Used correct verb tenses", "Spoke without excessive hesitation", "Response had a beginning and conclusion", "Vocabulary was appropriate and varied", "Spoke for at least 25 seconds"] },
+  { type: "Interactive Speaking", prompt: "What do you think is the most important skill a person needs to be successful in the modern world? Why?", time: 60, rubric: ["Named a specific skill clearly", "Gave 2+ reasons why it is important", "Used real-world examples", "Showed awareness of modern trends", "Spoke fluently with good intonation", "Used hedging language (I believe, in my view)", "Coherent logical progression", "Strong closing statement", "Spoke for at least 25 seconds"] },
+  { type: "Interactive Speaking", prompt: "Talk about a place in the world you would most like to visit. What would you do there and why does it interest you?", time: 60, rubric: ["Named the place clearly", "Described at least 2 specific attractions or activities", "Explained personal reasons for interest", "Used descriptive adjectives", "Spoke with enthusiasm and naturalness", "Used correct grammar throughout", "Ideas were well-organized", "Spoke for at least 25 seconds", "Response felt personal and specific"] },
+  { type: "Speaking Sample", prompt: "Some people prefer living in a big city, while others prefer the countryside. Discuss the advantages of each and explain where you would prefer to live and why.", time: 90, rubric: ["Mentioned advantages of city life", "Mentioned advantages of countryside life", "Clearly stated personal preference", "Gave reasons for preference", "Used comparative language (more, less, better)", "Organized response clearly", "Varied vocabulary used", "Strong conclusion", "Spoke for at least 60 seconds"] },
+  { type: "Speaking Sample", prompt: "Do you think it is possible for people to be truly happy without money? Give your opinion with reasons and examples.", time: 90, rubric: ["Stated a clear opinion on happiness and money", "Gave at least 2 supporting arguments", "Acknowledged the opposing view", "Used real-life examples", "Maintained fluent and natural delivery", "Used sophisticated vocabulary", "Logical structure with clear progression", "Strong concluding statement", "Spoke for at least 60 seconds"] },
+  { type: "Speaking Sample", prompt: "Many people believe that traditional cultures are being lost due to globalization. How do you feel about this? Is cultural change something to be celebrated or mourned?", time: 90, rubric: ["Defined or described cultural change", "Gave arguments for globalization's benefits", "Acknowledged loss of traditional culture", "Stated personal position clearly", "Used relevant examples from real cultures", "Sophisticated vocabulary used", "Spoke fluently and confidently", "Balanced and nuanced perspective shown", "Spoke for at least 60 seconds"] },
+  { type: "Speak About the Photo", prompt: "Imagine a photo showing: A busy outdoor city market where vendors are selling fresh fruits and vegetables. People of various ages are shopping, children are helping their parents carry bags, and colorful awnings provide shade. Describe what you see and what you think is happening.", time: 60, rubric: ["Described the main scene (market)", "Mentioned specific details (fruits, vegetables, awnings)", "Described the people present", "Used present continuous tense (are selling, are shopping)", "Made an inference about what is happening", "Used spatial language (in the foreground, nearby)", "Natural and fluent delivery", "Varied sentence structure", "Spoke for at least 45 seconds"] },
+  { type: "Speak About the Photo", prompt: "Imagine a photo showing: A classroom where a teacher is writing on the whiteboard while students of different ages sit at desks taking notes. Some students look engaged, while others seem distracted. Describe the scene in detail.", time: 60, rubric: ["Described the setting (classroom)", "Described the teacher's action", "Described the students' different behaviors", "Made an inference or interpretation", "Used present continuous tense correctly", "Used varied descriptive vocabulary", "Spoke naturally and confidently", "Used spatial or positional language", "Spoke for at least 45 seconds"] },
+  { type: "Speak About the Photo", prompt: "Imagine a photo showing: An elderly man sitting on a bench in a park feeding pigeons. It is autumn; there are colorful fallen leaves on the ground and the trees are mostly bare. He appears peaceful. Describe the scene and what you think the man might be feeling.", time: 60, rubric: ["Described the person and setting", "Mentioned the autumn season details (leaves, bare trees)", "Interpreted the man's emotions or state of mind", "Used descriptive adjectives effectively", "Used past or present tense appropriately", "Made a thoughtful inference", "Spoke fluently and naturally", "Varied vocabulary used", "Spoke for at least 45 seconds"] },
 ];
 
 const LISTEN_TYPE_SENTENCES = [
+  // Basic
   { sentence: "The researchers published their findings in a peer-reviewed journal last month.", category: "listening" },
   { sentence: "She decided to pursue a career in environmental science after visiting the rainforest.", category: "listening" },
   { sentence: "The city council voted to allocate more funds for public transportation improvements.", category: "listening" },
@@ -572,10 +610,31 @@ const LISTEN_TYPE_SENTENCES = [
   { sentence: "Renewable energy sources are gradually replacing fossil fuels in many countries.", category: "listening" },
   { sentence: "Her presentation on climate change received widespread praise from the audience.", category: "listening" },
   { sentence: "The government implemented strict regulations to control industrial pollution.", category: "listening" },
+  // Intermediate
+  { sentence: "Advances in medical technology have dramatically increased life expectancy over the past century.", category: "listening" },
+  { sentence: "The committee recommended that all employees complete the online training by the end of the month.", category: "listening" },
+  { sentence: "Psychologists argue that social media use is linked to higher rates of anxiety among teenagers.", category: "listening" },
+  { sentence: "The local authority approved the plan to convert the abandoned factory into affordable housing.", category: "listening" },
+  { sentence: "Her ability to communicate clearly in multiple languages gave her an advantage in the job market.", category: "listening" },
+  { sentence: "The professor emphasized the importance of citing reliable sources in academic writing.", category: "listening" },
+  { sentence: "Conservationists are working to protect the habitat of several endangered bird species.", category: "listening" },
+  { sentence: "The startup raised over five million dollars in its first round of funding from private investors.", category: "listening" },
+  { sentence: "Studies suggest that mindfulness meditation can improve focus and reduce stress levels.", category: "listening" },
+  { sentence: "The documentary explored the impact of plastic waste on marine ecosystems around the world.", category: "listening" },
+  { sentence: "Economic inequality has been identified as one of the root causes of social unrest in many regions.", category: "listening" },
+  { sentence: "The athletes trained for months to prepare for the international competition held in the capital.", category: "listening" },
+  // Advanced
+  { sentence: "The pharmaceutical company announced that clinical trials for the new vaccine had produced promising results.", category: "listening" },
+  { sentence: "Historians debate whether the Industrial Revolution ultimately improved or worsened living standards for the poor.", category: "listening" },
+  { sentence: "The architect's proposal incorporated sustainable materials and passive cooling techniques to reduce energy consumption.", category: "listening" },
+  { sentence: "Negotiations between the two governments stalled due to disagreements over territorial boundaries and resource rights.", category: "listening" },
+  { sentence: "The peer-reviewed study challenged previous assumptions about the relationship between diet and cardiovascular disease.", category: "listening" },
+  { sentence: "Local residents protested the proposed development, arguing it would irreparably damage the surrounding wetlands.", category: "listening" },
+  { sentence: "Cognitive scientists have found that sleep plays a crucial role in consolidating long-term memory.", category: "listening" },
+  { sentence: "The international panel concluded that immediate action was required to prevent further degradation of coral reefs.", category: "listening" },
 ];
 
 const READ_SELECT_WORDS = [
-  // Pairs of real/fake words
   { real: "elaborate", fake: "elaborite", meaning: "detailed and complex" },
   { real: "genuine", fake: "genuiene", meaning: "real and authentic" },
   { real: "analysis", fake: "analysys", meaning: "detailed examination" },
@@ -588,6 +647,62 @@ const READ_SELECT_WORDS = [
   { real: "vocabulary", fake: "vocabulery", meaning: "set of words known" },
   { real: "sophisticated", fake: "sofisticated", meaning: "complex and refined" },
   { real: "autonomous", fake: "autonymous", meaning: "self-governing" },
+  { real: "accommodate", fake: "acommodate", meaning: "provide space for" },
+  { real: "acknowledge", fake: "acknowlege", meaning: "accept or admit" },
+  { real: "apparent", fake: "apparant", meaning: "clearly visible" },
+  { real: "approximately", fake: "aproximately", meaning: "roughly or nearly" },
+  { real: "argument", fake: "arguement", meaning: "a reason given" },
+  { real: "beginning", fake: "begining", meaning: "the start of something" },
+  { real: "beneficial", fake: "beneficiel", meaning: "having a good effect" },
+  { real: "bureaucracy", fake: "burocracy", meaning: "complex official system" },
+  { real: "calendar", fake: "calender", meaning: "system for tracking dates" },
+  { real: "category", fake: "catagory", meaning: "a class or group" },
+  { real: "collaborate", fake: "colaborate", meaning: "work together" },
+  { real: "commitment", fake: "committment", meaning: "dedication to something" },
+  { real: "committee", fake: "commitee", meaning: "a group that makes decisions" },
+  { real: "communicate", fake: "comunicate", meaning: "share information" },
+  { real: "conscience", fake: "concience", meaning: "inner sense of right/wrong" },
+  { real: "curriculum", fake: "curiculum", meaning: "course of study" },
+  { real: "definitely", fake: "definately", meaning: "certainly" },
+  { real: "democracy", fake: "democrasy", meaning: "system of government by the people" },
+  { real: "discipline", fake: "dicipline", meaning: "controlled behavior" },
+  { real: "dissatisfied", fake: "disatisfied", meaning: "not pleased" },
+  { real: "efficiency", fake: "eficiency", meaning: "working without waste" },
+  { real: "exaggerate", fake: "exagerate", meaning: "overstate something" },
+  { real: "exercise", fake: "excercise", meaning: "physical activity" },
+  { real: "existence", fake: "existance", meaning: "the state of being real" },
+  { real: "experience", fake: "experiance", meaning: "knowledge from events" },
+  { real: "fundamental", fake: "fundemental", meaning: "basic and essential" },
+  { real: "government", fake: "goverment", meaning: "system of ruling a country" },
+  { real: "grammar", fake: "grammer", meaning: "rules of a language" },
+  { real: "guarantee", fake: "guarentee", meaning: "a firm promise" },
+  { real: "hierarchy", fake: "heirarchy", meaning: "system of ranks" },
+  { real: "independent", fake: "independant", meaning: "not controlled by others" },
+  { real: "intelligence", fake: "intellegence", meaning: "ability to learn and understand" },
+  { real: "interrupt", fake: "interupt", meaning: "to break the flow of something" },
+  { real: "knowledge", fake: "knowlege", meaning: "awareness or information" },
+  { real: "maintenance", fake: "maintainance", meaning: "keeping something in good condition" },
+  { real: "manufacture", fake: "manufactur", meaning: "to make on a large scale" },
+  { real: "millennium", fake: "millenium", meaning: "a period of 1000 years" },
+  { real: "occurrence", fake: "occurence", meaning: "something that happens" },
+  { real: "opportunity", fake: "oportunity", meaning: "a favorable situation" },
+  { real: "particularly", fake: "particuarly", meaning: "especially or specifically" },
+  { real: "perceive", fake: "percieve", meaning: "to become aware of" },
+  { real: "permanent", fake: "permanant", meaning: "lasting forever" },
+  { real: "privilege", fake: "privelege", meaning: "a special right or advantage" },
+  { real: "recommend", fake: "reccomend", meaning: "to suggest as suitable" },
+  { real: "relevant", fake: "relevent", meaning: "related to the subject" },
+  { real: "restaurant", fake: "restaraunt", meaning: "a place to eat meals" },
+  { real: "rhythm", fake: "rythm", meaning: "regular pattern of sound" },
+  { real: "ridiculous", fake: "rediculous", meaning: "absurd or silly" },
+  { real: "separate", fake: "seperate", meaning: "to keep apart" },
+  { real: "sufficient", fake: "sufficent", meaning: "enough for the purpose" },
+  { real: "synonym", fake: "synonim", meaning: "word with the same meaning" },
+  { real: "technique", fake: "techneque", meaning: "a method of doing something" },
+  { real: "thorough", fake: "thourough", meaning: "complete and careful" },
+  { real: "tomorrow", fake: "tommorrow", meaning: "the day after today" },
+  { real: "usually", fake: "usualy", meaning: "in most cases" },
+  { real: "whether", fake: "wether", meaning: "used to introduce alternatives" },
 ];
 
 // ============================================================
@@ -798,12 +913,27 @@ function generateReadSelectQuestion() {
 // ============================================================
 // TEST ENGINE
 // ============================================================
+// ANTI-REPEAT TRACKER — exhausts every question before looping
+// ============================================================
+const _seen = {
+  fill: new Set(), passage: new Set(), writing: new Set(),
+  speaking: new Set(), dictation: new Set(), readselect: new Set(), wp: new Set()
+};
+
+function _pick(arr, seenSet) {
+  if (seenSet.size >= arr.length) seenSet.clear(); // full cycle done → reset
+  const unseen = arr.map((_, i) => i).filter(i => !seenSet.has(i));
+  const idx = unseen[Math.floor(Math.random() * unseen.length)];
+  seenSet.add(idx);
+  return arr[idx];
+}
+
 let currentTest = { questions: [], index: 0, answers: [], startTime: null, timerInterval: null, timeLeft: 0 };
 
 function buildTestQuestions(category, count) {
   let questions = [];
   const cats = category === 'mixed'
-    ? ['vocabulary', 'vocabulary', 'reading', 'wordparts', 'wordparts', 'listening']
+    ? ['vocabulary', 'vocabulary', 'reading', 'wordparts', 'listening', 'vocabulary', 'speaking', 'wordparts', 'listening', 'reading']
     : [category];
 
   for (let i = 0; i < count; i++) {
@@ -816,28 +946,30 @@ function buildTestQuestions(category, count) {
 function pickQuestion(cat) {
   const r = Math.random();
   if (cat === 'vocabulary') {
-    if (r < 0.5) {
-      const q = FILL_IN_BLANKS[Math.floor(Math.random() * FILL_IN_BLANKS.length)];
+    if (r < 0.55) {
+      const q = _pick(FILL_IN_BLANKS, _seen.fill);
       return { type: 'fill', qtype: 'Fill in the Blank', ...q };
     } else {
-      return generateReadSelectQuestion();
+      const item = _pick(READ_SELECT_WORDS, _seen.readselect);
+      const opts = [item.real, item.fake].sort(() => 0.5 - Math.random());
+      return { type: 'mcq', qtype: 'Read & Select', question: `Which is a real English word? (meaning: ${item.meaning})`, options: opts, answer: item.real, explanation: `"${item.real}" is correct. "${item.fake}" is misspelled.`, category: 'vocabulary' };
     }
   } else if (cat === 'reading') {
     if (r < 0.6) {
-      const p = READ_COMPLETE_PASSAGES[Math.floor(Math.random() * READ_COMPLETE_PASSAGES.length)];
+      const p = _pick(READ_COMPLETE_PASSAGES, _seen.passage);
       return { type: 'passage', qtype: 'Read & Complete', ...p };
     } else {
-      const wp = INTERACTIVE_WRITING_PROMPTS[Math.floor(Math.random() * INTERACTIVE_WRITING_PROMPTS.length)];
+      const wp = _pick(INTERACTIVE_WRITING_PROMPTS, _seen.writing);
       return { type: 'writing', qtype: 'Interactive Writing', ...wp };
     }
   } else if (cat === 'speaking') {
-    const sp = SPEAKING_PROMPTS[Math.floor(Math.random() * SPEAKING_PROMPTS.length)];
+    const sp = _pick(SPEAKING_PROMPTS, _seen.speaking);
     return { type: 'speaking', qtype: sp.type, ...sp };
   } else if (cat === 'listening') {
-    const s = LISTEN_TYPE_SENTENCES[Math.floor(Math.random() * LISTEN_TYPE_SENTENCES.length)];
+    const s = _pick(LISTEN_TYPE_SENTENCES, _seen.dictation);
     return { type: 'dictation', qtype: 'Listen & Type', ...s };
   } else if (cat === 'wordparts') {
-    return generateWPQuestion();
+    return generateWPQuestion(); // already random from 219 items
   }
   return generateWPQuestion();
 }
